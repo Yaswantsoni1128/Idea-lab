@@ -1,0 +1,549 @@
+================================================================================
+PROMPT ENGINEERING ASSIGNMENT - REUSABLE PROMPTS FOR WEBSITE SECTIONS
+================================================================================
+
+These prompts are designed to be reusable, detailed, and consistently generate
+high-quality, responsive website sections using any AI coding tool (ChatGPT,
+Gemini, Claude, etc.). Each prompt follows a structured format with clear
+requirements, constraints, and examples.
+
+================================================================================
+META-PROMPT: GENERAL GUIDELINES FOR ALL SECTIONS
+================================================================================
+
+You are an expert front-end developer specializing in creating clean, modern,
+and responsive web components. When generating any website section, you must
+adhere to the following principles:
+
+TECHNICAL REQUIREMENTS:
+- Use React with functional components and hooks
+- Implement Tailwind CSS for styling (utility-first approach)
+- Ensure full mobile responsiveness using Tailwind's responsive breakpoints
+- Use semantic HTML5 elements for accessibility
+- Follow React best practices (proper key props, clean component structure)
+- Include proper TypeScript types if TypeScript is specified, otherwise use PropTypes or JSDoc comments
+
+DESIGN PRINCIPLES:
+- Maintain consistent spacing using Tailwind's spacing scale (4, 8, 12, 16, 24, 32, etc.)
+- Use a cohesive color palette (primary, secondary, accent colors)
+- Ensure proper contrast ratios for text readability (WCAG AA compliance)
+- Implement smooth transitions and hover effects where appropriate
+- Use modern design patterns (glassmorphism, subtle shadows, rounded corners)
+- Maintain visual hierarchy through typography scale and spacing
+
+CODE QUALITY:
+- Write clean, readable, and maintainable code
+- Use descriptive variable and function names
+- Include comments for complex logic
+- Ensure components are reusable and accept props for customization
+- Avoid inline styles; use Tailwind classes exclusively
+- Implement proper error handling and validation where needed
+
+RESPONSIVE DESIGN:
+- Mobile-first approach (design for mobile, enhance for desktop)
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
+- Test layouts at: 320px (mobile), 768px (tablet), 1024px (desktop), 1920px (large desktop)
+- Ensure touch-friendly interactive elements (minimum 44x44px tap targets)
+- Use flexbox and grid for layouts, avoid fixed widths
+
+ACCESSIBILITY:
+- Include proper ARIA labels where needed
+- Ensure keyboard navigation works
+- Maintain focus states for interactive elements
+- Use semantic HTML elements
+- Provide alt text for images
+
+================================================================================
+PROMPT 1: NAVIGATION BAR COMPONENT
+================================================================================
+
+Generate a fully responsive navigation bar component for a modern website with
+the following specifications:
+
+COMPONENT STRUCTURE:
+- Component name: NavigationBar or Navbar
+- Accept props: brandName (string), menuItems (array of objects with label and href), optional className
+- Use React hooks (useState) for mobile menu toggle functionality
+
+VISUAL DESIGN:
+- Fixed or sticky positioning at the top of the page
+- Clean, minimal design with subtle background (white/light with shadow or dark theme option)
+- Brand name/logo on the left side, navigation links on the right (desktop)
+- Smooth transitions for hover effects and mobile menu animations
+- Use a modern color scheme (e.g., dark text on light background or vice versa)
+
+DESKTOP LAYOUT:
+- Horizontal layout with brand on left, navigation items on right
+- Navigation links displayed in a row with appropriate spacing (gap-6 or gap-8)
+- Hover effects: subtle color change or underline animation
+- Active link state should be visually distinct
+
+MOBILE RESPONSIVENESS:
+- Hamburger menu icon (3 horizontal lines) visible on mobile/tablet (< 768px)
+- Full-screen or slide-down mobile menu when hamburger is clicked
+- Smooth animation for menu open/close (slide down or fade in)
+- Mobile menu should overlay content or push content down
+- Close button (X icon) in mobile menu
+- Menu items stacked vertically in mobile view with adequate spacing
+- Touch-friendly tap targets (minimum 48px height per menu item)
+
+INTERACTIVE FEATURES:
+- Mobile menu toggle functionality using useState hook
+- Close menu when clicking outside (optional, but recommended)
+- Smooth scroll to sections if using anchor links
+- Active link highlighting based on current route/section
+
+CODE REQUIREMENTS:
+- Use Tailwind CSS classes exclusively
+- Implement proper accessibility (aria-label, aria-expanded for mobile menu)
+- Use semantic HTML (nav element, ul/li for menu items)
+- Include proper event handlers for mobile menu toggle
+- Clean component structure with separation of concerns
+
+EXAMPLE PROPS STRUCTURE:
+{
+  brandName: "YourBrand",
+  menuItems: [
+    { label: "Home", href: "#home" },
+    { label: "Services", href: "#services" },
+    { label: "About", href: "#about" },
+    { label: "Contact", href: "#contact" }
+  ]
+}
+
+OUTPUT FORMAT:
+- Complete React functional component code
+- All Tailwind classes properly applied
+- Mobile menu functionality fully implemented
+- No external dependencies beyond React and Tailwind
+- Ready to use with minimal or no modifications
+
+================================================================================
+PROMPT 2: HERO SECTION COMPONENT
+================================================================================
+
+Generate a visually striking hero section component that serves as the main
+landing area of a website with the following specifications:
+
+COMPONENT STRUCTURE:
+- Component name: HeroSection or Hero
+- Accept props: headline (string), subtext (string), ctaText (string), ctaLink (string), optional imageUrl (string), optional className
+- Support for optional background image or illustration
+
+VISUAL DESIGN:
+- Full-width section with appropriate vertical padding (py-16 to py-32)
+- Centered content layout with maximum width constraint (max-w-7xl)
+- Eye-catching headline using large, bold typography (text-4xl to text-6xl on desktop)
+- Subtext with readable font size (text-lg to text-xl) and lighter color
+- Prominent CTA button with hover effects and proper styling
+- Optional: Background image with overlay for text readability
+- Optional: Decorative elements or illustrations
+
+LAYOUT OPTIONS:
+- Option A: Centered text with CTA button below
+- Option B: Split layout (text on left, image/illustration on right)
+- Option C: Full-width background image with overlaid text
+- Ensure content is centered both horizontally and vertically within the section
+
+RESPONSIVE DESIGN:
+- Headline scales appropriately: text-3xl (mobile) → text-4xl (tablet) → text-5xl/6xl (desktop)
+- Subtext scales: text-base (mobile) → text-lg (tablet) → text-xl (desktop)
+- Padding adjusts: py-12 (mobile) → py-16 (tablet) → py-24/32 (desktop)
+- CTA button maintains good size on all devices
+- Image/illustration (if present) stacks below text on mobile, side-by-side on desktop
+
+CTA BUTTON DESIGN:
+- Prominent, well-styled button with primary brand color
+- Adequate padding (px-6 py-3 minimum)
+- Rounded corners (rounded-lg or rounded-xl)
+- Hover effect: color change, scale, or shadow enhancement
+- Smooth transition animations
+- Accessible focus states
+
+TYPOGRAPHY:
+- Headline: Bold, attention-grabbing font (font-bold or font-extrabold)
+- Subtext: Regular or medium weight, good line height for readability
+- Proper text alignment (center for centered layout, left for split layout)
+
+COLOR SCHEME:
+- High contrast between text and background
+- If using background image, ensure text overlay has sufficient contrast
+- CTA button should stand out with brand primary color
+
+CODE REQUIREMENTS:
+- Use Tailwind CSS classes exclusively
+- Semantic HTML structure (section element, proper heading hierarchy)
+- Accessible markup with proper heading levels (h1 for main headline)
+- Clean, reusable component structure
+- Support for optional image via props
+
+EXAMPLE PROPS STRUCTURE:
+{
+  headline: "Transform Your Business Today",
+  subtext: "We provide innovative solutions to help your business grow and succeed in the digital age.",
+  ctaText: "Get Started",
+  ctaLink: "#contact",
+  imageUrl: "https://images.unsplash.com/photo-..." // optional
+}
+
+OUTPUT FORMAT:
+- Complete React functional component code
+- All Tailwind classes properly applied
+- Fully responsive design
+- Optional image support implemented
+- Ready to use with minimal or no modifications
+
+================================================================================
+PROMPT 3: SERVICES / FEATURES SECTION COMPONENT
+================================================================================
+
+Generate a services or features showcase section that displays multiple service
+items or features in a clean, organized grid layout with the following
+specifications:
+
+COMPONENT STRUCTURE:
+- Component name: ServicesSection or FeaturesSection
+- Accept props: title (string), subtitle (string), items (array of service/feature objects), optional className
+- Each item should have: title, description, icon (optional), and optional link
+
+VISUAL DESIGN:
+- Section with clear heading and optional subtitle
+- Grid layout displaying 3-6 items (responsive: 1 column mobile, 2 columns tablet, 3 columns desktop)
+- Each item card with: icon/illustration, title, description
+- Consistent card styling with subtle shadows, rounded corners, hover effects
+- Adequate spacing between cards (gap-6 or gap-8)
+
+ITEM CARD DESIGN:
+- Card container with padding (p-6 to p-8)
+- Icon/illustration at the top (centered or left-aligned)
+- Title below icon (font-semibold or font-bold, text-xl or text-2xl)
+- Description text below title (text-gray-600 or similar, good line height)
+- Optional: CTA link or button within each card
+- Hover effect: subtle lift (transform scale or translate), shadow enhancement, or color change
+
+ICON/ILLUSTRATION HANDLING:
+- Support for SVG icons (inline or as image URLs)
+- Icon size: w-12 h-12 to w-16 h-16
+- Icon color should match brand or use a distinct color per service
+- If no icon provided, use a placeholder or decorative element
+
+LAYOUT STRUCTURE:
+- Section title centered or left-aligned (text-3xl to text-4xl, font-bold)
+- Optional subtitle below title (text-gray-600, text-lg)
+- Grid container with responsive columns:
+  * Mobile (< 640px): 1 column
+  * Tablet (640px - 1024px): 2 columns
+  * Desktop (> 1024px): 3 columns
+  * Large desktop (> 1280px): 3-4 columns
+- Cards maintain equal height using flexbox or grid
+
+RESPONSIVE DESIGN:
+- Grid adapts to screen size automatically
+- Card padding adjusts: p-4 (mobile) → p-6 (tablet) → p-8 (desktop)
+- Title and description text scale appropriately
+- Icons maintain good size on all devices
+- Adequate vertical spacing between section title and grid
+
+COLOR SCHEME:
+- Cards: white or light background with subtle border or shadow
+- Icons: brand colors or distinct colors per service
+- Text: dark for titles, medium gray for descriptions
+- Hover states: subtle background color change or border highlight
+
+CODE REQUIREMENTS:
+- Use Tailwind CSS classes exclusively
+- Grid layout using CSS Grid (grid-cols-1 md:grid-cols-2 lg:grid-cols-3)
+- Semantic HTML (section, article for each card, proper heading hierarchy)
+- Accessible markup with proper alt text for icons/images
+- Clean, reusable component structure
+- Map over items array to render cards dynamically
+
+EXAMPLE PROPS STRUCTURE:
+{
+  title: "Our Services",
+  subtitle: "We offer a comprehensive range of solutions to meet your needs",
+  items: [
+    {
+      title: "Web Development",
+      description: "Custom websites built with modern technologies and best practices.",
+      icon: "💻", // or SVG/URL
+      link: "#web-dev" // optional
+    },
+    {
+      title: "Mobile Apps",
+      description: "Native and cross-platform mobile applications for iOS and Android.",
+      icon: "📱",
+      link: "#mobile"
+    },
+    // ... more items
+  ]
+}
+
+OUTPUT FORMAT:
+- Complete React functional component code
+- All Tailwind classes properly applied
+- Fully responsive grid layout
+- Dynamic rendering from items array
+- Icon support (emoji, SVG, or image URL)
+- Hover effects and transitions
+- Ready to use with minimal or no modifications
+
+================================================================================
+PROMPT 4: CONTACT / LEAD FORM COMPONENT
+================================================================================
+
+Generate a professional contact form or lead generation form component with
+proper validation structure, clean layout, and responsive design with the
+following specifications:
+
+COMPONENT STRUCTURE:
+- Component name: ContactForm or LeadForm
+- Accept props: onSubmit (function), optional className, optional fields (array for customization)
+- Use React hooks (useState) for form state management
+- Implement basic client-side validation
+
+FORM FIELDS (Standard):
+- Name (text input, required)
+- Email (email input, required, email validation)
+- Phone (tel input, optional, phone format validation)
+- Subject (text input, optional)
+- Message (textarea, required, minimum length validation)
+- Submit button
+
+VISUAL DESIGN:
+- Clean, organized form layout with proper spacing
+- Labels above or beside inputs (accessible label association)
+- Input fields with consistent styling:
+  * Padding: px-4 py-3
+  * Border: 1px solid gray-300, rounded-lg
+  * Focus state: border color change, ring/outline
+  * Error state: red border, error message below field
+- Textarea with adequate height (min-h-32 or min-h-24)
+- Submit button: prominent, primary color, adequate padding, rounded corners
+- Form container with max-width constraint (max-w-2xl) and centered layout
+
+LAYOUT OPTIONS:
+- Option A: Single column (all fields stacked, labels above)
+- Option B: Two columns for name/email on desktop, single column on mobile
+- Ensure form is centered on the page with appropriate padding
+
+VALIDATION REQUIREMENTS:
+- Required field validation (show error if empty on submit or blur)
+- Email format validation (regex pattern)
+- Phone format validation (optional, basic pattern)
+- Message minimum length (e.g., 10 characters)
+- Real-time or on-submit validation (show error messages)
+- Error messages displayed below each field in red text (text-sm, text-red-600)
+
+FORM STATE MANAGEMENT:
+- Use useState for each field value
+- Use useState for error states (object with field names as keys)
+- Handle form submission with preventDefault
+- Call onSubmit prop with form data
+- Optional: Show success message after submission
+- Optional: Reset form after successful submission
+
+RESPONSIVE DESIGN:
+- Single column layout on mobile
+- Two-column layout for name/email on desktop (if using Option B)
+- Input fields full width on mobile, appropriate width on desktop
+- Submit button full width on mobile, auto width on desktop
+- Adequate padding around form container on all devices
+
+ACCESSIBILITY:
+- Proper label association (htmlFor and id attributes)
+- Required fields marked with aria-required="true"
+- Error messages associated with fields using aria-describedby
+- Keyboard navigation support
+- Focus states clearly visible
+- Submit button accessible via keyboard
+
+STYLING DETAILS:
+- Input focus: border-blue-500 or brand primary color, ring-2 ring-blue-200
+- Input error: border-red-500, ring-2 ring-red-200
+- Error message: text-red-600, text-sm, mt-1
+- Submit button: bg-blue-600 hover:bg-blue-700 (or brand colors), text-white, font-semibold
+- Disabled submit button state (while submitting)
+
+CODE REQUIREMENTS:
+- Use Tailwind CSS classes exclusively
+- Semantic HTML (form element, proper input types, labels)
+- React hooks for state management
+- Validation functions (can be inline or separate)
+- Clean component structure
+- Proper event handlers (onChange, onSubmit, onBlur for validation)
+
+EXAMPLE PROPS STRUCTURE:
+{
+  onSubmit: (formData) => {
+    console.log('Form submitted:', formData);
+    // Handle form submission
+  }
+}
+
+FORM DATA STRUCTURE:
+{
+  name: string,
+  email: string,
+  phone: string,
+  subject: string,
+  message: string
+}
+
+OUTPUT FORMAT:
+- Complete React functional component code
+- All Tailwind classes properly applied
+- Form state management with useState
+- Basic validation implemented
+- Error handling and display
+- Fully responsive design
+- Accessible markup
+- Ready to use with minimal or no modifications
+
+================================================================================
+PROMPT 5: FOOTER COMPONENT
+================================================================================
+
+Generate a comprehensive footer component with links, social icons, contact
+information, and copyright notice with the following specifications:
+
+COMPONENT STRUCTURE:
+- Component name: Footer
+- Accept props: brandName (string), links (object with link groups), socialLinks (array), contactInfo (object), optional className
+- Support for multiple link columns/sections
+
+VISUAL DESIGN:
+- Dark background (bg-gray-900 or bg-slate-900) with light text
+- Or light background with dark text (match site theme)
+- Organized into sections: links, contact info, social icons, copyright
+- Clean separation between sections using borders or spacing
+- Adequate padding (py-12 to py-16)
+
+LAYOUT STRUCTURE:
+- Multi-column layout on desktop:
+  * Column 1: Brand name/logo and tagline
+  * Column 2-4: Link groups (e.g., Company, Services, Support)
+  * Column 5: Contact information
+  * Bottom row: Social icons and copyright
+- Single column or two-column layout on mobile (stacked)
+- Grid or flexbox layout with responsive columns
+
+LINK SECTIONS:
+- Each link group has a heading (font-semibold, text-white or text-gray-900)
+- Links listed vertically below heading
+- Links styled as: text-gray-400 hover:text-white (or appropriate colors)
+- No underline by default, underline on hover (optional)
+- Proper spacing between links (gap-2 or gap-3)
+
+SOCIAL ICONS:
+- Horizontal row of social media icons
+- Icons: Facebook, Twitter, LinkedIn, Instagram, YouTube, etc.
+- Icon size: w-6 h-6 or w-8 h-8
+- Adequate spacing between icons (gap-4 or gap-6)
+- Hover effect: color change or scale transform
+- Use SVG icons or icon library (Heroicons, Font Awesome)
+
+CONTACT INFORMATION:
+- Display: email, phone, address (optional)
+- Icons or text-only format
+- Proper spacing and readability
+- Clickable email and phone (mailto: and tel: links)
+
+COPYRIGHT NOTICE:
+- Bottom of footer, centered or left-aligned
+- Text: "© [Year] [Brand Name]. All rights reserved."
+- Smaller font size (text-sm)
+- Lighter color (text-gray-400 or text-gray-500)
+
+RESPONSIVE DESIGN:
+- Desktop (> 1024px): 4-5 column layout
+- Tablet (768px - 1024px): 2-3 column layout
+- Mobile (< 768px): Single column, stacked sections
+- Links and contact info stack vertically on mobile
+- Social icons remain horizontal on all devices
+- Padding adjusts: py-8 (mobile) → py-12 (desktop)
+
+COLOR SCHEME OPTIONS:
+- Option A: Dark footer (bg-gray-900, text-white/gray-300)
+- Option B: Light footer (bg-gray-50, text-gray-900)
+- Ensure good contrast for readability
+- Match or complement main site theme
+
+CODE REQUIREMENTS:
+- Use Tailwind CSS classes exclusively
+- Semantic HTML (footer element, proper heading hierarchy, nav for link groups)
+- Accessible markup with proper link text
+- Clean, organized component structure
+- Support for dynamic link groups via props
+- Social icons as clickable links (target="_blank", rel="noopener noreferrer")
+
+EXAMPLE PROPS STRUCTURE:
+{
+  brandName: "YourBrand",
+  links: {
+    "Company": [
+      { label: "About Us", href: "#about" },
+      { label: "Careers", href: "#careers" },
+      { label: "Contact", href: "#contact" }
+    ],
+    "Services": [
+      { label: "Web Development", href: "#web-dev" },
+      { label: "Mobile Apps", href: "#mobile" }
+    ],
+    "Support": [
+      { label: "Help Center", href: "#help" },
+      { label: "Privacy Policy", href: "#privacy" },
+      { label: "Terms of Service", href: "#terms" }
+    ]
+  },
+  socialLinks: [
+    { name: "Facebook", url: "https://facebook.com/...", icon: "..." },
+    { name: "Twitter", url: "https://twitter.com/...", icon: "..." },
+    { name: "LinkedIn", url: "https://linkedin.com/...", icon: "..." }
+  ],
+  contactInfo: {
+    email: "contact@yourbrand.com",
+    phone: "+1 (555) 123-4567",
+    address: "123 Main St, City, State 12345" // optional
+  }
+}
+
+OUTPUT FORMAT:
+- Complete React functional component code
+- All Tailwind classes properly applied
+- Fully responsive multi-column layout
+- Dynamic rendering from props
+- Social icons implemented
+- Contact information displayed
+- Copyright with current year
+- Ready to use with minimal or no modifications
+
+================================================================================
+USAGE INSTRUCTIONS FOR AI TOOLS
+================================================================================
+
+When using these prompts with AI coding tools:
+
+1. COPY THE ENTIRE PROMPT for the section you want to generate
+2. PASTE into ChatGPT, Claude, Gemini, or your preferred AI tool
+3. The AI should generate complete, production-ready code
+4. If output needs refinement, add specific requests like:
+   - "Make the colors match a blue and white theme"
+   - "Use a different layout option (Option B instead of Option A)"
+   - "Add animation to the mobile menu"
+5. Test the generated code and iterate if needed
+
+REFINEMENT TIPS:
+- If colors don't match your brand, specify exact colors: "Use #3B82F6 for primary color"
+- If spacing feels off, request: "Increase spacing between cards to gap-8"
+- If mobile menu doesn't work, ask: "Fix the mobile menu toggle functionality"
+- If form validation is missing, specify: "Add email format validation with regex"
+
+These prompts are designed to be self-contained and should work consistently
+across different AI tools. The key is the level of detail and structure
+provided, which guides the AI to generate high-quality output.
+
+================================================================================
+END OF PROMPTS
+================================================================================
+
