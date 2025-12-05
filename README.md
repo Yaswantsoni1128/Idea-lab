@@ -9,9 +9,7 @@ A beautiful, fully responsive, and modern business website built with React, fea
 
 ## 🌐 Live Demo
 
-**🔗 [View Live Website](https://your-live-link-here.netlify.app)**
-
-> **Note:** Replace `your-live-link-here.netlify.app` with your actual deployed URL (Netlify, Vercel, GitHub Pages, etc.)
+**🔗 [View Live Website](https://idea-lab-lime.vercel.app/)**
 
 ## ✨ Features
 
